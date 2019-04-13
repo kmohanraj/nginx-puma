@@ -1,5 +1,4 @@
 ## Puma Nginx Setup
-###### http://ruby-journal.com/how-to-setup-rails-app-with-puma-and-nginx/
 #### 1.Nginx Setup:
 
 install the following key,
@@ -115,3 +114,4 @@ RAILS_ENV=production bundle exec puma -d
 
 ```
 
+###### http://ruby-journal.com/how-to-setup-rails-app-with-puma-and-nginx/
