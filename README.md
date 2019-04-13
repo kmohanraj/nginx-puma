@@ -14,6 +14,8 @@ NOTE, if you have already installed `` Nginx `` before, make remove it.
 ```
 sudo apt-get purge nginx*
 ```
+#### OR, use without adding key and source.list
+
 THEN, update and install the package,
 ```
 sudo apt-get update
