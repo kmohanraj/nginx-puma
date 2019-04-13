@@ -1,62 +1,47 @@
-## Puma Nginx Setup
+## Rails Puma and Nginx Setup
 #### 1.Nginx Setup:
 
 install the following key,
 ```
-
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ABF5BD827BD9BF62
-
 ```
 THEN, add teh line to end of the file ``/etc/apt/sources.list ``
 ```
-
 deb http://nginx.org/packages/ubuntu/ precise nginx
-
 ```
 
 NOTE, if you have already installed `` Nginx `` before, make remove it.
 ```
-
 sudo apt-get purge nginx*
-
 ```
 THEN, update and install the package,
 ```
-
 sudo apt-get update
-sudo apt-get install nginx
 
+sudo apt-get install nginx
 ```
 THEN, check your nginx version,
 ```
-
 nginx -v
-
 ```
 
 THEN, start the daemon using Upstart,
 ```
-
 sudo service nginx start
-
 ```
 
 #### 2.Configuration:
 
 FIRTS, remove the `default` conf in both sites-available and sites-enabled.
 ```
-
 sudo rm /etc/nginx/sites-available/default
 
 sudo rm /etc/nginx/sites-enabled/default
-
 ```
 
 THEN, create new app conf in ` sites-availabe/app_name`
 ```
-
 sudo vi /etc/nginx/sites-available/app_name or app_name.conf
-
 ```
 
 THEN, paste the following config,
@@ -94,24 +79,18 @@ server {
 
 THEN, need to enable it by creating	symlink in `/etc/nginx/site-enabled`
 ```
-
 sudo ln -sf /etc/nginx/sites-available/app_name /etc/nginx/sites-enabled/app_name
-
 ```
 THEN. start nginx web server,
 ```
-
 sudo service nginx restart
-
 ```
 
-THEN, start your app server, before inside the applucation folder, if use `daemon` use -d 
+THEN, start your app server, before inside the application folder, if use `daemon` use -d 
 ```
-
 bundle exec puma -e production -d 
  (or) 
 RAILS_ENV=production bundle exec puma -d 
-
 ```
 
 ###### http://ruby-journal.com/how-to-setup-rails-app-with-puma-and-nginx/
