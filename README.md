@@ -84,6 +84,20 @@ sudo ln -sf /etc/nginx/sites-available/app_name /etc/nginx/sites-enabled/app_nam
 THEN. start nginx web server,
 ```
 sudo service nginx restart
+  				   start
+				   stop
+				   reload
+
+or
+
+# Enable Nginx server at boot time using the systemctl command:
+
+sudo systemctl enable nginx
+			   start
+			   restart
+			   stop
+			   reload
+			   statu
 ```
 
 THEN, start your app server, before inside the application folder, if use `daemon` use -d 
